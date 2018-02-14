@@ -4,7 +4,9 @@
 
     <form>
 
-        
+        @method('post')
+        @csrf
+
 
     </form>
 
