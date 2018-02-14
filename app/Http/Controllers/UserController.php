@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\User\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 /**
  * Controls the business logic for any modifications
@@ -15,6 +18,14 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    /**
+     * instance of the UserRepository
+     *
+     * @var UserRepository
+     */
+    protected $userRepository;
+
     /**
      * Create UserController instance
      *
@@ -23,6 +34,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->userRepository = new UserRepository();
     }
 
     /**
@@ -30,8 +42,29 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function settings()
+    public function profile()
     {
-        return view('user.settings')->with('user', Auth::user());
+        $userObject = $this->userRepository;
+        if ($userObject->hasProfilePicture()) {
+            $profile_picture_url = $userObject->getProfilePictureUrl();
+        }
+        else {
+            $profile_picture_url = url('default_user_icon.png');
+        }
+        return view('user.profile')->with('user', Auth::user())->with('profile_img', $profile_picture_url);
+    }
+
+    /**
+     * Uploads the profile picture and persists
+     * the location of storage to the database
+     *
+     * @param Request $request
+     * @return Redirect
+     */
+    public function uploadProfilePicture(Request $request)
+    {
+        $this->userRepository->uploadAndStoreProfilePicture($request);
+
+        return redirect()->route('dashboard.home');
     }
 }

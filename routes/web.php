@@ -17,4 +17,6 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@home')->name('dashboard.home');
 
-Route::get('/settings', 'UserController@settings')->name('user.settings');
+Route::get('/profile', 'UserController@profile')->name('user.profile');
+
+Route::post('/profile/image', 'UserController@uploadProfilePicture')->name('profile.picture.upload');

@@ -44,7 +44,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('user.settings') }}">
+                                    <a class="dropdown-item" href="{{ route('user.profile') }}">
                                         <i class="fa fa-cog"></i> Settings
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
