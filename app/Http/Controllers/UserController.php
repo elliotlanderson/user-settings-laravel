@@ -65,6 +65,6 @@ class UserController extends Controller
     {
         $this->userRepository->uploadAndStoreProfilePicture($request);
 
-        return redirect()->route('dashboard.home');
+        return redirect()->route('user.profile');
     }
 }
