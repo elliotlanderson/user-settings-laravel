@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Controls the business logic for any modifications
@@ -31,6 +32,6 @@ class UserController extends Controller
      */
     public function settings()
     {
-        return view('user.settings');
+        return view('user.settings')->with('user', Auth::user());
     }
 }
