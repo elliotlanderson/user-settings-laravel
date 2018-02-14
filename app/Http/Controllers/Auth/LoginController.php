@@ -36,4 +36,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Overwriting AuthenticatesUsers trait
+     * to log users in by Phone Number
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'phone_number';
+    }
 }

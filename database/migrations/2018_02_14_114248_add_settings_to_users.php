@@ -19,7 +19,7 @@ class AddSettingsToUsers extends Migration
          */
 
         Schema::table('users', function(Blueprint $table) {
-            $table->string('phone_number', '40')->nullable();
+            $table->string('phone_number', '40')->unique();
             $table->string('github_url', '250')->nullable();
             $table->string('linkedin_url', '250')->nullable();
             $table->string('profile_picture_path')->nullable();
