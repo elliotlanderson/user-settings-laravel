@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "007bb82afba703d1d3f959a3e9f49d81",
+    "content-hash": "5d6b08302e4173227fc497e81eb9b0ac",
     "packages": [
+        {
+            "name": "aloha/twilio",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aloha/laravel-twilio.git",
+                "reference": "0980734612ca48f50684e6298ccad508ed493115"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aloha/laravel-twilio/zipball/0980734612ca48f50684e6298ccad508ed493115",
+                "reference": "0980734612ca48f50684e6298ccad508ed493115",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "twilio/sdk": ">=3.12.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.9",
+                "illuminate/console": "~4||~5",
+                "illuminate/support": "~4||~5",
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aloha\\Twilio\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hannes Van De Vreken",
+                    "email": "vandevreken.hannes@gmail.com"
+                },
+                {
+                    "name": "Travis J Ryan",
+                    "email": "travisjryan@gmail.com"
+                }
+            ],
+            "description": "Twilio API for Laravel",
+            "homepage": "https://github.com/aloha/laravel-twilio",
+            "keywords": [
+                "ivr",
+                "laravel",
+                "sms",
+                "twilio"
+            ],
+            "time": "2017-06-27T09:08:45+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -2230,6 +2284,52 @@
             "time": "2017-11-27T11:13:29+00:00"
         },
         {
+            "name": "twilio/sdk",
+            "version": "5.16.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twilio/twilio-php.git",
+                "reference": "d33971d26a1f6c2d7914d6df1d76601f2921fb2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/d33971d26a1f6c2d7914d6df1d76601f2921fb2a",
+                "reference": "d33971d26a1f6c2d7914d6df1d76601f2921fb2a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "apigen/apigen": "^4.1",
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Twilio\\": "Twilio/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Twilio API Team",
+                    "email": "api@twilio.com"
+                }
+            ],
+            "description": "A PHP wrapper for Twilio's API",
+            "homepage": "http://github.com/twilio/twilio-php",
+            "keywords": [
+                "api",
+                "sms",
+                "twilio"
+            ],
+            "time": "2018-02-09T23:39:06+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.4.0",
             "source": {
@@ -2500,6 +2600,56 @@
                 "test"
             ],
             "time": "2016-01-20T08:20:44+00:00"
+        },
+        {
+            "name": "laravel/homestead",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/homestead.git",
+                "reference": "4ee5e98e22a6e5625392e48c82095ec257debcf1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/4ee5e98e22a6e5625392e48c82095ec257debcf1",
+                "reference": "4ee5e98e22a6e5625392e48c82095ec257debcf1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "symfony/console": "~3.3|~4.0",
+                "symfony/process": "~3.3|~4.0",
+                "symfony/yaml": "~3.3|~4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^6.0"
+            },
+            "bin": [
+                "bin/homestead"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Homestead\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "A virtual machine for web artisans.",
+            "time": "2018-02-07T22:03:46+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -4040,6 +4190,64 @@
             ],
             "description": "Give thanks (in the form of a GitHub ⭐) to your fellow PHP package maintainers (not limited to Symfony components)!",
             "time": "2018-01-26T10:44:34+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v4.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "ffc60bda1d4a00ec0b32eeabf39dc017bf480028"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/ffc60bda1d4a00ec0b32eeabf39dc017bf480028",
+                "reference": "ffc60bda1d4a00ec0b32eeabf39dc017bf480028",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "conflict": {
+                "symfony/console": "<3.4"
+            },
+            "require-dev": {
+                "symfony/console": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-01-21T19:06:11+00:00"
         },
         {
             "name": "theseer/tokenizer",

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UndoVerificationFuckUp extends Migration
+class AddVerificationToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class UndoVerificationFuckUp extends Migration
     public function up()
     {
         //
-
-        Schema::table('verifications', function(Blueprint $table) {
-           $table->integer('user_id');
+        Schema::table('users', function (Blueprint $table) {
+           $table->boolean('activated')->default(false);
+           $table->string('activation_code')->nullable();
         });
     }
 
@@ -28,7 +28,9 @@ class UndoVerificationFuckUp extends Migration
     public function down()
     {
         //
-
-
+        Schema::table('users', function(Blueprint $table) {
+           $table->dropColumn('activated');
+           $table->dropColumn('activation_code');
+        });
     }
 }

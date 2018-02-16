@@ -45,12 +45,14 @@ class UserController extends Controller
     public function profile()
     {
         $userObject = $this->userRepository;
-        if ($userObject->hasProfilePicture()) {
+
+        $profile_picture_url = url('default_user_icon.png');
+
+        if ($userObject->hasProfilePicture())
+        {
             $profile_picture_url = $userObject->getProfilePictureUrl();
         }
-        else {
-            $profile_picture_url = url('default_user_icon.png');
-        }
+
         return view('user.profile')->with('user', Auth::user())->with('profile_img', $profile_picture_url);
     }
 
