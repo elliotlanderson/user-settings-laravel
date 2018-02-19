@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d6b08302e4173227fc497e81eb9b0ac",
+    "content-hash": "a007d9d372be279c44118bd292d31411",
     "packages": [
         {
             "name": "aloha/twilio",

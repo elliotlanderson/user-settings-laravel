@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\TwilioHelper;
 use App\User\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -24,6 +26,14 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
+     * Instance of Twilio Helper
+     *
+     * @var TwilioHelper
+     */
+    protected $twilioHelper;
+
+
+    /**
      * Where to redirect users after registration.
      *
      * @var string
@@ -38,6 +48,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
+        $this->twilioHelper = new TwilioHelper();
     }
 
     /**
@@ -71,5 +83,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'activation_code' => rand(1000000,9999999)
         ]);
+    }
+
+    public function registered(Request $request, $user)
+    {
+        $message = 'Thanks for signing up!  Your activation code is: ' . $user->activation_code;
+
+        $phoneNumber = '+1' . preg_replace('/[^0-9]/', '', $user->phone_number);
+
+        $this->twilioHelper->send($phoneNumber, $message);
     }
 }

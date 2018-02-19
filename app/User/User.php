@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone_number', 'github_url', 'linkedin_url', 'profile_pic_url'
+        'name', 'email', 'password', 'phone_number', 'github_url', 'linkedin_url', 'profile_pic_url', 'activation_code'
     ];
 
     /**
@@ -28,6 +28,9 @@ class User extends Authenticatable
     ];
 
 
-
+    public function isConfirmed()
+    {
+        return $this->activated;
+    }
 
 }

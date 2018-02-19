@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
  * Class DashboardController
  * @package App\Http\Controllers
  */
-class DashboardController extends Controller
+class DashboardController extends AuthController
 {
     /**
      * Instantiate DashboardController
@@ -23,13 +23,11 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('activated');
     }
 
     public function home()
     {
-
-
-        return view('home')->with('user', Auth::user());
+        return view('home')->with('user', $this->getUser());
     }
 }

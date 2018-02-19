@@ -20,3 +20,7 @@ Route::get('/dashboard', 'DashboardController@home')->name('dashboard.home');
 Route::get('/profile', 'UserController@profile')->name('user.profile');
 
 Route::post('/profile/image', 'UserController@uploadProfilePicture')->name('profile.picture.upload');
+
+Route::get('/activate', 'UserController@activate')->name('user.activate');
+
+Route::post('/activate', 'UserController@handleActivate')->name('user.activate.handle');

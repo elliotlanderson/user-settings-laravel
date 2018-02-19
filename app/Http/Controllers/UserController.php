@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Redirect;
  * @package App\Http\Controllers
  */
 
-class UserController extends Controller
+class UserController extends AuthController
 {
 
     /**
@@ -68,5 +68,28 @@ class UserController extends Controller
         $this->userRepository->uploadAndStoreProfilePicture($request);
 
         return redirect()->route('user.profile');
+    }
+
+    /**
+     * Shows the Activation Screen
+     */
+    public function activate()
+    {
+        return view('user.activate')->with('user', $this->getUser());
+    }
+
+    public function handleActivate(Request $request)
+    {
+        $user = auth()->user();
+        $activation_code = $request->get('activation_code');
+
+        if ($activation_code == $user->activation_code) {
+            $user->activated = true;
+            $user->save();
+
+            return redirect()->route('dashboard.home');
+        }
+
+        return redirect()->back()->withErrors();
     }
 }
